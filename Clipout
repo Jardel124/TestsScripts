@@ -40,6 +40,54 @@ toggle.Visible = true
 toggle.Parent = nil
 toggle.Name = 'Toggle'
 
+local function easyTween(ins:Instance, tf:TweenInfo | number, props:{})
+	if typeof(tf) == 'number' then
+		tf = TweenInfo.new(tf)
+	end
+	local tween = game:GetService('TweenService'):Create(ins, tf, props)
+	tween:Play()
+	return tween
+end
+
+local function createHoverVisual(button, maxscale)
+	if maxscale == nil then
+		maxscale = 1.1
+	end
+	
+	local uiscale = Instance.new('UIScale')
+	uiscale.Scale = 1
+	uiscale.Parent = button
+	button.MouseEnter:Connect(function()
+		easyTween(uiscale, 0.1, {Scale = maxscale})
+	end)
+	button.MouseLeave:Connect(function()
+		easyTween(uiscale, 0.1, {Scale = 1})
+	end)
+end
+
+local function playSound(sound:Sound)
+	local sound = sound:Clone()
+	sound.Parent = plr.PlayerGui
+	sound.Name = game:GetService('HttpService'):GenerateGUID()
+	sound.Volume = 1
+	sound:Play()
+	sound.Ended:Connect(function()
+		sound:Destroy()
+	end)
+end
+
+createHoverVisual(toggle)
+toggle.MouseEnter:Connect(function()
+	playSound(game.SoundService.Ui.MouseEnter)
+end)
+toggle.MouseButton1Click:Connect(function()
+	playSound(game.SoundService.Ui.Click)
+	
+end)
+toggle.MouseLeave:Connect(function()
+	playSound(game.SoundService.Ui.Leave)
+end)
+
 local v0
 v0 = rs.RenderStepped:Connect(function()
 	if gui then
