@@ -10,3 +10,5 @@ local gui = Instance.new('ScreenGui')
 gui.Name = guiname
 gui.Parent = plr.PlayerGui
 gui.ResetOnSpawn = false
+
+warn('Created UI!')
