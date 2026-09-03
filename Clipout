@@ -1,1 +1,12 @@
-warn('TESTE')
+local guiname = 'CoolCOSCRIPT'
+local plr = game.Players.LocalPlayer
+
+if plr.PlayerGui:FindFirstChild(guiname) then
+    plr.PlayerGui:FindFirstChild(guiname):Destroy()
+    warn('Reseted Old UI')
+end
+
+local gui = Instance.new('ScreenGui')
+gui.Name = guiname
+gui.Parent = plr.PlayerGui
+gui.ResetOnSpawn = false
