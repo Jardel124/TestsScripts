@@ -24,4 +24,10 @@ for _,v in pairs(side:GetChildren()) do
 	end
 end
 
+for _, scripted in pairs(side:GetDescendants()) do
+	if scripted:IsA('Script') or scripted:IsA('LocalScript') then
+		scripted:Destroy()
+	end
+end
+
 warn('Created UI!')
