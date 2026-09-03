@@ -49,6 +49,8 @@ v0 = rs.RenderStepped:Connect(function()
 			else
 				toggle.Parent = plr.PlayerGui:FindFirstChild('LadoBar')
 			end
+		else
+			warn('No LadoBar')
 		end
 	else
 		v0:Disconnect()
