@@ -2,13 +2,26 @@ local guiname = 'CoolCOSCRIPT'
 local plr = game.Players.LocalPlayer
 
 if plr.PlayerGui:FindFirstChild(guiname) then
-    plr.PlayerGui:FindFirstChild(guiname):Destroy()
-    warn('Reseted Old UI')
+	plr.PlayerGui:FindFirstChild(guiname):Destroy()
+	warn('Reseted Old UI')
 end
 
 local gui = Instance.new('ScreenGui')
 gui.Name = guiname
 gui.Parent = plr.PlayerGui
 gui.ResetOnSpawn = false
+
+local side = plr.PlayerGui:FindFirstChild('LadoBar'):Clone()
+side.Badges.Name = 'Template'
+side.Template.Visible = false
+side.Enabled = true
+side.ResetOnSpawn = false
+side.Parent = gui
+
+for _,v in pairs(side:GetChildren()) do
+	if v:IsA('ImageButton') and v.Name ~= 'Template' then
+		v:Destroy()
+	end
+end
 
 warn('Created UI!')
