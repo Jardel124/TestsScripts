@@ -1,3 +1,5 @@
+local rs = game:GetService('RunService')
+
 local guiname = 'CoolCOSCRIPT'
 local plr = game.Players.LocalPlayer
 
@@ -17,17 +19,44 @@ side.Template.Visible = false
 side.Enabled = true
 side.ResetOnSpawn = false
 side.Parent = gui
+side.Name = 'Lado'
 
-for _,v in pairs(side:GetChildren()) do
-	if v.Name ~= 'Template' and v.ClassName ~= 'UIListLayout' then
-		v:Destroy()
+local toggle = side.Template:Clone()
+toggle.Visible = true
+toggle.Parent = side
+toggle.Name = 'Toggle'
+
+
+
+do
+	for _,v in pairs(side:GetChildren()) do
+		if v.Name ~= 'Template' and v.ClassName ~= 'UIListLayout' then
+			v:Destroy()
+		end
+	end
+
+	for _, scripted in pairs(side:GetDescendants()) do
+		if scripted:IsA('Script') or scripted:IsA('LocalScript') then
+			scripted:Destroy()
+		end
 	end
 end
 
-for _, scripted in pairs(side:GetDescendants()) do
-	if scripted:IsA('Script') or scripted:IsA('LocalScript') then
-		scripted:Destroy()
+local v0
+v0 = rs.RenderStepped:Connect(function()
+	if gui then
+		if plr.PlayerGui:FindFirstChild('LadoBar') then
+			if plr.PlayerGui:FindFirstChild('LadoBar').Enabled == false then
+				toggle.Parent = side
+			else
+				toggle.Parent = plr.PlayerGui:FindFirstChild('LadoBar')
+			end
+		end
+	else
+		v0:Disconnect()
+		v0 = nil
+		warn('Disnnected UI')
 	end
-end
+end)
 
 warn('Created UI!')
