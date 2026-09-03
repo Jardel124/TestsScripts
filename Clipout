@@ -19,7 +19,7 @@ side.ResetOnSpawn = false
 side.Parent = gui
 
 for _,v in pairs(side:GetChildren()) do
-	if v:IsA('ImageButton') and v.Name ~= 'Template' then
+	if v.Name ~= 'Template' and v.ClassName ~= 'UIListLayout' then
 		v:Destroy()
 	end
 end
