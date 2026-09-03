@@ -91,6 +91,12 @@ end)
 local v0
 v0 = rs.RenderStepped:Connect(function()
 	if gui then
+		local hum = plr.Character and plr.Character:FindFirstChild('Humanoid')
+		if hum and hum.Health <= 0 then
+			toggle.Parent = plr
+			return
+		end
+		
 		if plr.PlayerGui:FindFirstChild('LadoBar') then
 			if plr.PlayerGui:FindFirstChild('LadoBar').Enabled == false then
 				toggle.Parent = side
@@ -98,6 +104,7 @@ v0 = rs.RenderStepped:Connect(function()
 				toggle.Parent = plr.PlayerGui:FindFirstChild('LadoBar')
 			end
 		else
+			toggle.Parent = plr
 			warn('No LadoBar')
 		end
 	else
