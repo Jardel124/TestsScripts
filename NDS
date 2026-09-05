@@ -72,3 +72,4 @@ uipadding_closeButton.PaddingTop = UDim.new(0, 0)
 uipadding_closeButton.PaddingBottom = UDim.new(0.45, 0)
 uipadding_closeButton.Parent = closeButton
 
+warn('Gui Created!')
