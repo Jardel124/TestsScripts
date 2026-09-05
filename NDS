@@ -1,4 +1,4 @@
-local versionscript = '1.1'
+local versionscript = '1.2'
 
 local gui = Instance.new('ScreenGui')
 gui.Name = 'LocalScript'
@@ -12,12 +12,28 @@ center.AnchorPoint = Vector2.new(0.5, 0.5)
 center.Position = UDim2.new(0.5, 0, 0.5, 0)
 center.Parent = gui
 
-local function createButton(text)
-	local btn = Instance.new('TextButton')
-	btn.Size = UDim2.new(1, 0, 0.2, 0)
-	btn.Text = text
-	btn.Parent = gui
-	return btn
+local function easyTween(obj:Instance, time:number?, props:{}, callbacks:{Completed:() -> any})
+	local tweenService = game:GetService('TweenService')
+	local final
+	
+	if tonumber(time) == nil then
+		final = time
+	else
+		final = time or .5
+	end
+	
+	
+	local tween = tweenService:Create(obj, final, props)
+	tween:Play()
+	if callbacks ~= nil then
+		for i, v in pairs(callbacks) do
+			if i == 'Completed' then
+				tween.Completed:Connect(v)
+			end
+		end
+	end
+	
+	return tween
 end
 
 local mainFrame = Instance.new('Frame')
@@ -54,7 +70,8 @@ closeButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 closeButton.BackgroundTransparency = 0
 closeButton.Visible = true
 closeButton.MouseButton1Click:Connect(function()
-	gui:Destroy()
+	--gui:Destroy()
+	easyTween(center, 1, {Size = UDim2.new(0, 0, 0, 0)},{Completed = function() gui:Destroy() end})
 end)
 
 local uistroke_closeButton = Instance.new('UIStroke')
