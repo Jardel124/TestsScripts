@@ -95,12 +95,16 @@ uistroke_sidebar.Thickness = 3
 uistroke_sidebar.Parent = sidebar
 
 local minimizeButton = Instance.new('ImageButton')
-minimizeButton.Size = UDim2.fromScale(.215, 0.1)
+minimizeButton.Size = UDim2.fromScale(.056, 0.153)
 minimizeButton.Parent = center
+minimizeButton.Position = UDim2.new(0.158, 0, 0, 0)
 minimizeButton.Image = 'rbxassetid://18161819135'
 minimizeButton.BackgroundTransparency = 1
 minimizeButton.ZIndex = 3
 minimizeButton.Visible = true
+
+local uiaspectratio_minimizeButton = Instance.new('UIAspectRatioConstraint')
+uiaspectratio_minimizeButton.Parent = minimizeButton
 
 local mainScroller = Instance.new('ScrollingFrame')
 mainScroller.Size = UDim2.fromScale(1, 1)
