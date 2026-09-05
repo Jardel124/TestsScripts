@@ -1,3 +1,5 @@
+local versionscript = '1.0'
+
 local gui = Instance.new('ScreenGui')
 gui.Name = 'LocalScript'
 gui.ResetOnSpawn = false
@@ -75,6 +77,7 @@ uipadding_closeButton.Parent = closeButton
 local sidebar = Instance.new('Frame')
 sidebar.Size = UDim2.new(0.274, 0, 1, 0)
 sidebar.Parent = mainFrame
+sidebar.BackgroundColor3 = Color3.fromRGB(31, 0, 67)
 
 local uilistlayout_mainFrame = Instance.new('UIListLayout')
 uilistlayout_mainFrame.SortOrder = Enum.SortOrder.LayoutOrder
@@ -112,3 +115,18 @@ mainScroller.CanvasSize = UDim2.fromScale(0, 0)
 mainScroller.ScrollBarThickness = 0
 mainScroller.Parent = mainFrame
 mainScroller.Transparency = 1
+
+local versionLabel = Instance.new('TextLabel')
+versionLabel.Size = UDim2.fromScale(1, 0.1)
+versionLabel.Parent = center
+versionLabel.Position = UDim2.new(1, 0, 1, 0)
+versionLabel.AnchorPoint = Vector2.new(1, 1)
+versionLabel.Text = 'Version ' .. versionscript
+versionLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+versionLabel.TextScaled = true
+versionLabel.BackgroundTransparency = 1
+versionLabel.ZIndex = 3
+versionLabel.Visible = true
+versionLabel.RichText = true
+versionLabel.Font = Enum.Font.GothamBlack
+versionLabel.TextStrokeTransparency = 0.5
