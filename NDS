@@ -105,4 +105,9 @@ minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 minimizeButton.ZIndex = 3
 minimizeButton.Visible = true
 
-warn('Hello world!')
+local mainScroller = Instance.new('ScrollingFrame')
+mainScroller.Size = UDim2.fromScale(1, 1)
+mainScroller.CanvasSize = UDim2.fromScale(0, 0)
+mainScroller.ScrollBarThickness = 0
+mainScroller.Parent = mainFrame
+mainScroller.Transparency = 1
