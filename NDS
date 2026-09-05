@@ -41,7 +41,7 @@ closeButton.Size = UDim2.fromScale(.169, 0.175)
 closeButton.AnchorPoint = Vector2.new(1, 1)
 closeButton.Position = UDim2.new(0.973, 0, 0.05, 0)
 closeButton.Text = 'Close'
-closeButton.TextColor3 = Color3.fromRGB(255, 0, 4)
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 closeButton.TextScaled = true
 closeButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 closeButton.TextStrokeTransparency = 0
@@ -72,4 +72,35 @@ uipadding_closeButton.PaddingTop = UDim.new(0, 0)
 uipadding_closeButton.PaddingBottom = UDim.new(0.45, 0)
 uipadding_closeButton.Parent = closeButton
 
-warn('Gui Created!')
+local sidebar = Instance.new('Frame')
+sidebar.Size = UDim2.new(0.274, 0, 1, 0)
+
+local uilistlayout_mainFrame = Instance.new('UIListLayout')
+uilistlayout_mainFrame.SortOrder = Enum.SortOrder.LayoutOrder
+uilistlayout_mainFrame.Padding = UDim.new(0, 0)
+uilistlayout_mainFrame.Parent = mainFrame
+uilistlayout_mainFrame.HorizontalFlex = Enum.UIFlexAlignment.Fill
+uilistlayout_mainFrame.FillDirection = Enum.FillDirection.Horizontal
+
+local uicorner_sidebar = Instance.new('UICorner')
+uicorner_sidebar.CornerRadius = UDim.new(0, 8)
+uicorner_sidebar.BottomRightRadius = UDim.new(0, 0)
+uicorner_sidebar.TopRightRadius = UDim.new(0, 0)
+uicorner_sidebar.Parent = sidebar
+
+local uistroke_sidebar = Instance.new('UIStroke')
+uistroke_sidebar.Color = Color3.fromRGB(5, 0, 52)
+uistroke_sidebar.Thickness = 3
+uistroke_sidebar.Parent = sidebar
+
+local minimizeButton = Instance.new('TextButton')
+minimizeButton.Size = UDim2.fromScale(.215, 0.1)
+minimizeButton.Text = '☰'
+minimizeButton.Parent = mainFrame
+minimizeButton.TextStrokeTransparency = 0
+minimizeButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+minimizeButton.TextScaled = true
+minimizeButton.Transparency = 1
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.ZIndex = 3
+minimizeButton.Visible = true
