@@ -1,1 +1,5 @@
+local anim = Instance.new('Animation')
+anim.AnimationId = 'rbxassetid://99603764088739'
 
+game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(anim):Play()
+anim:Destroy()
