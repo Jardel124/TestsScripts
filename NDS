@@ -1,4 +1,4 @@
-local versionscript = '1.2'
+local versionscript = '1.3'
 
 local gui = Instance.new('ScreenGui')
 gui.Name = 'LocalScript'
@@ -19,9 +19,8 @@ local function easyTween(obj:Instance, time:number?, props:{}, callbacks:{Comple
 	if tonumber(time) == nil then
 		final = time
 	else
-		final = time or .5
+		final = TweenInfo.new(time or .5)
 	end
-	
 	
 	local tween = tweenService:Create(obj, final, props)
 	tween:Play()
@@ -71,7 +70,7 @@ closeButton.BackgroundTransparency = 0
 closeButton.Visible = true
 closeButton.MouseButton1Click:Connect(function()
 	--gui:Destroy()
-	easyTween(center, 1, {Size = UDim2.new(0, 0, 0, 0)},{Completed = function() gui:Destroy() end})
+	easyTween(center, TweenInfo.new(.4, Enum.EasingStyle.Bounce), {Size = UDim2.new(center.Size.X.Scale, 0, 0, 0)},{Completed = function() gui:Destroy() end})
 end)
 
 local uistroke_closeButton = Instance.new('UIStroke')
