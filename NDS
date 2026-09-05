@@ -104,3 +104,5 @@ minimizeButton.Transparency = 1
 minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 minimizeButton.ZIndex = 3
 minimizeButton.Visible = true
+
+warn('Hello world!')
