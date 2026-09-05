@@ -24,7 +24,7 @@ mainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 mainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
 mainFrame.BackgroundColor3 = Color3.fromRGB(42, 0, 90)
 mainFrame.BackgroundTransparency = 0
-mainFrame.Visible = false
+mainFrame.Visible = true
 mainFrame.Parent = center
 
 local uistroke_mainFrame = Instance.new('UIStroke')
@@ -38,7 +38,7 @@ uicorner_mainFrame.Parent = mainFrame
 
 local closeButton = Instance.new('TextButton')
 closeButton.Size = UDim2.fromScale(.169, 0.175)
-closeButton.AnchorPoint = Vector2.new(0.5, 0.5)
+closeButton.AnchorPoint = Vector2.new(1, 1)
 closeButton.Position = UDim2.new(0.973, 0, 0.05, 0)
 closeButton.Text = 'Close'
 closeButton.TextColor3 = Color3.fromRGB(255, 0, 4)
