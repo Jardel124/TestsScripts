@@ -74,6 +74,7 @@ uipadding_closeButton.Parent = closeButton
 
 local sidebar = Instance.new('Frame')
 sidebar.Size = UDim2.new(0.274, 0, 1, 0)
+sidebar.Parent = mainFrame
 
 local uilistlayout_mainFrame = Instance.new('UIListLayout')
 uilistlayout_mainFrame.SortOrder = Enum.SortOrder.LayoutOrder
@@ -93,15 +94,11 @@ uistroke_sidebar.Color = Color3.fromRGB(5, 0, 52)
 uistroke_sidebar.Thickness = 3
 uistroke_sidebar.Parent = sidebar
 
-local minimizeButton = Instance.new('TextButton')
+local minimizeButton = Instance.new('ImageButton')
 minimizeButton.Size = UDim2.fromScale(.215, 0.1)
-minimizeButton.Text = '☰'
-minimizeButton.Parent = mainFrame
-minimizeButton.TextStrokeTransparency = 0
-minimizeButton.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
-minimizeButton.TextScaled = true
-minimizeButton.Transparency = 1
-minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Parent = center
+minimizeButton.Image = 'rbxassetid://11087437491'
+minimizeButton.BackgroundTransparency = 1
 minimizeButton.ZIndex = 3
 minimizeButton.Visible = true
 
