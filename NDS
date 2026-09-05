@@ -1,4 +1,4 @@
-local versionscript = '1.0'
+local versionscript = '1.1'
 
 local gui = Instance.new('ScreenGui')
 gui.Name = 'LocalScript'
@@ -130,3 +130,5 @@ versionLabel.Visible = true
 versionLabel.RichText = true
 versionLabel.Font = Enum.Font.GothamBlack
 versionLabel.TextStrokeTransparency = 0.5
+versionLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+versionLabel.TextXAlignment = Enum.TextXAlignment.Right
